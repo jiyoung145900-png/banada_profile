@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "BANADA",
+      "hasCanvas": false,
+      "bodyTextLen": 373,
+      "bodyTextHash": "7fc788e3c554d79e0fdc73becda62881ac76125db8dc2a94e440948aa886aae2",
+      "bodyTextPrefix": "BANADA PROFILE STUDIO 입력하는 즉시 카드가 바뀝니다 BANADA 사진 추가 BANADA 이아름, ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "BANADA",
+      "hasCanvas": false,
+      "bodyTextLen": 320,
+      "bodyTextHash": "eed237c2a58ba166c5ae99a453dcb6996e11998bd008d0cabc28966130fed7c8",
+      "bodyTextPrefix": "BANADA PROFILE STUDIO BANADA 사진 추가 BANADA 이아름, 28 165cm · C컵 · 5",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}

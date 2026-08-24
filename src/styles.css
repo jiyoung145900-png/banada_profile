@@ -1,0 +1,429 @@
+@import "tailwindcss";
+@import "@fontsource/syne/latin-700.css";
+@import "@fontsource/syne/latin-800.css";
+@import "@fontsource/noto-sans-kr/korean-400.css";
+@import "@fontsource/noto-sans-kr/korean-500.css";
+@import "@fontsource/noto-sans-kr/korean-700.css";
+@import "@fontsource/noto-sans-kr/latin-400.css";
+@import "@fontsource/noto-sans-kr/latin-700.css";
+
+@theme {
+  --font-sans: "Noto Sans KR", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Syne", "Noto Sans KR", ui-sans-serif, sans-serif;
+
+  --color-ink: #12110e;
+  --color-ink-2: #1a1914;
+  --color-ink-3: #24231d;
+  --color-paper: #f4efe3;
+  --color-paper-2: #ebe4d4;
+  --color-banana: #f0c400;
+  --color-banana-deep: #d4a80a;
+  --color-fg: #f4efe3;
+  --color-fg-muted: #a39b88;
+  --color-fg-subtle: #6f6858;
+  --color-line: rgb(244 239 227 / 0.12);
+  --color-line-strong: rgb(244 239 227 / 0.22);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+
+  --tracking-brand: 0.2em;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-ink);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+  }
+}
+
+.banada-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
+  opacity: 0.35;
+  mix-blend-mode: overlay;
+}
+
+.banada-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--color-ink-3);
+  outline: none;
+}
+
+.banada-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: var(--color-banana);
+  border: 0;
+  cursor: pointer;
+}
+
+.banada-range::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: var(--color-banana);
+  border: 0;
+  cursor: pointer;
+}
+
+/* Capture-safe hex styles — do not route these through @theme oklch */
+.banada-card {
+  width: 100%;
+  max-width: 380px;
+  overflow: hidden;
+  position: relative;
+  font-family: "Noto Sans KR", ui-sans-serif, sans-serif;
+  box-shadow:
+    0 28px 64px rgb(0 0 0 / 0.45),
+    0 0 0 1px rgb(240 196 0 / 0.16);
+}
+
+.banada-card-photo {
+  position: relative;
+  overflow: hidden;
+  background: #1a1914;
+}
+
+.banada-card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.banada-card-photo-empty {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  background: radial-gradient(ellipse 80% 58% at 50% 38%, #2c281f 0%, #12110e 72%);
+  color: #f0c400;
+  letter-spacing: 0.28em;
+  font-size: 10px;
+  font-weight: 700;
+  font-family: Syne, "Noto Sans KR", sans-serif;
+}
+
+.banada-card-watermark {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 56px;
+  letter-spacing: 0.14em;
+  font-weight: 800;
+  color: rgb(240 196 0 / 0.09);
+  pointer-events: none;
+}
+
+.banada-card-empty-mark {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.banada-card-brand-mark {
+  width: 14px;
+  height: 14px;
+}
+
+.banada-card-moon {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: #f0c400;
+  box-shadow: 10px -8px 0 0 #12110e inset;
+  display: inline-block;
+}
+
+.banada-card-veil {
+  display: none;
+}
+
+.banada-card-brand {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #f0c400;
+  font-family: Syne, "Noto Sans KR", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-shadow: 0 1px 8px rgb(18 17 14 / 0.55);
+}
+
+.banada-card-brand .banada-card-moon {
+  width: 16px;
+  height: 16px;
+  box-shadow: 6px -5px 0 0 #12110e inset;
+}
+
+.banada-card-body {
+  padding: 22px 22px 24px;
+}
+
+.banada-card-name {
+  margin: 0;
+  font-family: Syne, "Noto Sans KR", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.banada-card-stats {
+  margin: 10px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+
+.banada-card-charm {
+  margin: 14px 0 0;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.banada-card-bio {
+  margin: 16px 0 0;
+  padding: 14px 16px;
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+.banada-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.banada-card-tags li {
+  padding: 6px 11px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.banada-card-stripe-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: #f0c400;
+  color: #12110e;
+  font-family: Syne, "Noto Sans KR", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+}
+
+/* Noir — full-bleed editorial */
+.theme-noir {
+  background: #12110e;
+  color: #f4efe3;
+}
+
+.theme-noir .banada-card-photo {
+  height: 348px;
+}
+
+.theme-noir .banada-card-veil {
+  display: block;
+  position: absolute;
+  inset: auto 0 0;
+  height: 160px;
+  background: linear-gradient(to top, #12110e 0%, rgb(18 17 14 / 0) 100%);
+}
+
+.theme-noir .banada-card-body {
+  margin-top: -72px;
+  position: relative;
+  z-index: 2;
+  padding-top: 8px;
+}
+
+.theme-noir .banada-card-name {
+  color: #f0c400;
+}
+
+.theme-noir .banada-card-stats {
+  color: #a39b88;
+}
+
+.theme-noir .banada-card-charm {
+  color: #f4efe3;
+}
+
+.theme-noir .banada-card-bio {
+  background: #1a1914;
+  color: #cfc6b2;
+  border-left: 3px solid #f0c400;
+}
+
+.theme-noir .banada-card-tags li {
+  background: #24231d;
+  color: #f4efe3;
+}
+
+/* Ivory — cream magazine */
+.theme-ivory {
+  background: #f4efe3;
+  color: #12110e;
+}
+
+.theme-ivory .banada-card-photo {
+  height: 292px;
+  margin: 14px 14px 0;
+  border-radius: 12px;
+}
+
+.theme-ivory .banada-card-photo-empty {
+  background: radial-gradient(ellipse 80% 58% at 50% 38%, #efe6d2 0%, #d9d0bc 72%);
+  color: #12110e;
+}
+
+.theme-ivory .banada-card-watermark {
+  color: rgb(18 17 14 / 0.08);
+}
+
+.theme-ivory .banada-card-brand {
+  color: #f0c400;
+  mix-blend-mode: normal;
+}
+
+.theme-ivory .banada-card-brand .banada-card-moon {
+  box-shadow: 6px -5px 0 0 #1a1914 inset;
+}
+
+.theme-ivory .banada-card-name {
+  color: #12110e;
+}
+
+.theme-ivory .banada-card-stats {
+  color: #6f6858;
+}
+
+.theme-ivory .banada-card-charm {
+  color: #3a372f;
+}
+
+.theme-ivory .banada-card-bio {
+  background: #ebe4d4;
+  color: #3a372f;
+  border-left: 3px solid #f0c400;
+}
+
+.theme-ivory .banada-card-tags li {
+  background: #12110e;
+  color: #f0c400;
+}
+
+/* Stripe — banana band */
+.theme-stripe {
+  background: #12110e;
+  color: #f4efe3;
+}
+
+.theme-stripe .banada-card-photo {
+  height: 300px;
+}
+
+.theme-stripe .banada-card-name {
+  color: #f4efe3;
+}
+
+.theme-stripe .banada-card-stats {
+  color: #a39b88;
+}
+
+.theme-stripe .banada-card-charm {
+  color: #f0c400;
+}
+
+.theme-stripe .banada-card-bio {
+  background: #1a1914;
+  color: #cfc6b2;
+  border-left: 3px solid #f0c400;
+}
+
+.theme-stripe .banada-card-tags li {
+  background: #f0c400;
+  color: #12110e;
+}
+
+/* Brand logo (top-left, next to BANADA text) */
+.banada-card-brand-logo {
+  height: 18px;
+  width: auto;
+  max-width: 48px;
+  object-fit: contain;
+  border-radius: 2px;
+}
+
+.banada-card-stripe-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.banada-card-stripe-logo {
+  height: 16px;
+  width: auto;
+  max-width: 40px;
+  object-fit: contain;
+  border-radius: 2px;
+}
+
+.banada-dock {
+  padding: 12px 12px max(12px, env(safe-area-inset-bottom));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
